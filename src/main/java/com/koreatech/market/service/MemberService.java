@@ -7,7 +7,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.koreatech.market.controller.dto.request.MemberJoinRequest;
 import com.koreatech.market.controller.dto.response.MemberJoinResponse;
 import com.koreatech.market.domain.Member;
+import com.koreatech.market.exception.AuthenticationException;
 import com.koreatech.market.exception.DuplicationException;
+import com.koreatech.market.exception.NotFoundException;
 import com.koreatech.market.repository.MemberRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -46,5 +48,16 @@ public class MemberService {
         memberRepository.save(joinMember);
 
         return MemberJoinResponse.from(joinMember);
+    }
+
+    public Long login(String email, String password) {
+        Member member = memberRepository.findByEmail(email)
+            .orElseThrow(() -> new AuthenticationException("잘못된 이메일 또는 비밀번호입니다."));
+
+        if (!passwordEncoder.matches(password, member.getPassword())) {
+            throw new AuthenticationException("잘못된 이메일 또는 비밀번호입니다.");
+        }
+
+        return member.getId();
     }
 }

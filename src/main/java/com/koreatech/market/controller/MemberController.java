@@ -8,9 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.koreatech.market.controller.dto.request.MemberJoinRequest;
+import com.koreatech.market.controller.dto.request.MemberLoginRequest;
 import com.koreatech.market.controller.dto.response.MemberJoinResponse;
 import com.koreatech.market.service.MemberService;
 
+import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
@@ -25,5 +27,12 @@ public class MemberController {
     public ResponseEntity<MemberJoinResponse> join(@RequestBody @Valid MemberJoinRequest request) {
         MemberJoinResponse response = memberService.join(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<Void> login(@RequestBody @Valid MemberLoginRequest request, HttpSession session) {
+        Long memberId = memberService.login(request.email(), request.password());
+        session.setAttribute("memberId", memberId);
+        return ResponseEntity.ok().build();
     }
 }
