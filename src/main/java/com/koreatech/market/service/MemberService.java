@@ -76,4 +76,12 @@ public class MemberService {
 
         member.changeInfo(request.nickname(), request.phoneNumber());
     }
+
+    @Transactional
+    public void delete(Long userId) {
+        Member member = memberRepository.findById(userId)
+            .orElseThrow(() -> new NotFoundException("회원을 찾을 수 없습니다."));
+
+        memberRepository.delete(member);
+    }
 }
