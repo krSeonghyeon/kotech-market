@@ -24,10 +24,10 @@ public record MemberJoinRequest(
 
     @NotBlank(message = "학번은 비어있을 수 없습니다")
     @Size(max = 10, message = "학번은 최대 10자까지 가능합니다")
-    String student_number,
+    String studentNumber,
 
     @NotBlank(message = "전화번호는 비어있을 수 없습니다")
     @Size(max = 20, message = "전화번호는 최대 20자까지 가능합니다")
-    String phone_number
+    String phoneNumber
 ) {
 }

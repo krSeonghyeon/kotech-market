@@ -39,6 +39,7 @@ public class MemberController {
     public ResponseEntity<Void> login(@RequestBody @Valid MemberLoginRequest request, HttpSession session) {
         Long memberId = memberService.login(request.email(), request.password());
         session.setAttribute("memberId", memberId);
+        session.setMaxInactiveInterval(30 * 60);
         return ResponseEntity.ok().build();
     }
 

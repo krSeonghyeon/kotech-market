@@ -32,7 +32,7 @@ public class MemberService {
         if (memberRepository.existsByNickname(request.nickname())) {
             throw new DuplicationException("이미 사용 중인 닉네임입니다.");
         }
-        if (memberRepository.existsByStudentNumber(request.student_number())) {
+        if (memberRepository.existsByStudentNumber(request.studentNumber())) {
             throw new DuplicationException("이미 사용 중인 학번입니다.");
         }
 
@@ -43,8 +43,8 @@ public class MemberService {
             .password(encodedPassword)
             .name(request.name())
             .nickname(request.nickname())
-            .studentNumber(request.student_number())
-            .phoneNumber(request.phone_number())
+            .studentNumber(request.studentNumber())
+            .phoneNumber(request.phoneNumber())
             .build();
 
         memberRepository.save(joinMember);

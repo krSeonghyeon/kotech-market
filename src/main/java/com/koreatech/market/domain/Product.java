@@ -62,6 +62,6 @@ public class Product {
     @Column(nullable = false, length = 10)
     private ProductStatus status;
 
-    @Column(nullable = false, updatable = false)
+    @Column(nullable = false, insertable = false, updatable = false)
     private LocalDateTime createdAt;
 }
