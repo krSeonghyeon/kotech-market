@@ -1,0 +1,104 @@
+body {
+    font-family: 'Noto Sans KR', Arial, sans-serif;
+    background-color: #f2f5f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-weight: 400;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 30px 50px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 420px;
+    width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    max-height: 90px;
+}
+
+h1 {
+    margin-top: 0;
+    text-align: center;
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.form-section h2 {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 15px;
+    font-weight: 700;
+    border-bottom: 2px solid #003f7f; /* 더 진한 파란색 */
+    padding-bottom: 5px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+    display: block;
+}
+
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #d1d9e6;
+    border-radius: 6px;
+    font-size: 14px;
+    color: #333;
+    box-sizing: border-box;
+    background-color: #f9fbfd;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+    outline: 2px solid rgba(0, 63, 127, 0.8); /* 얇은 outline */
+    box-shadow: 0 0 8px rgba(0, 63, 127, 0.5); /* 부드러운 그림자 */
+}
+
+.submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #003f7f; /* 더 진한 파란색 */
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.submit-button:hover {
+    background-color: #002850; /* hover 상태에서 더 어두운 진한 파란색 */
+}
+
+.submit-button:active {
+    background-color: #001430; /* active 상태에서 더 어두운 진한 파란색 */
+    transform: scale(0.98);
+}
