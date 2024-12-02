@@ -7,6 +7,7 @@ public record MemberJoinResponse(
     String email,
     String nickname
 ) {
+
     public static MemberJoinResponse from(Member member) {
         return new MemberJoinResponse(
             member.getId(),

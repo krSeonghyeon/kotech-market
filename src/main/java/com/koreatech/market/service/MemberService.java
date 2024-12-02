@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.koreatech.market.controller.dto.request.MemberJoinRequest;
+import com.koreatech.market.controller.dto.response.MemberInfoResponse;
 import com.koreatech.market.controller.dto.response.MemberJoinResponse;
 import com.koreatech.market.domain.Member;
 import com.koreatech.market.exception.AuthenticationException;
@@ -59,5 +60,11 @@ public class MemberService {
         }
 
         return member.getId();
+    }
+
+    public MemberInfoResponse getInfo(Long userId) {
+        Member member = memberRepository.findById(userId)
+            .orElseThrow(() -> new NotFoundException("회원을 찾을 수 없습니다."));
+        return MemberInfoResponse.from(member);
     }
 }
