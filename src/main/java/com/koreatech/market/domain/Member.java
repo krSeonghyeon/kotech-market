@@ -51,4 +51,9 @@ public class Member {
 
     @Column(name = "created_at", insertable = false)
     private LocalDateTime createdAt;
+
+    public void changeInfo(String nickname, String phoneNumber) {
+        this.nickname = nickname;
+        this.phoneNumber = phoneNumber;
+    }
 }

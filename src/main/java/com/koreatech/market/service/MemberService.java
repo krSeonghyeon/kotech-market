@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.koreatech.market.controller.dto.request.MemberJoinRequest;
+import com.koreatech.market.controller.dto.request.MemberModifyRequest;
 import com.koreatech.market.controller.dto.response.MemberInfoResponse;
 import com.koreatech.market.controller.dto.response.MemberJoinResponse;
 import com.koreatech.market.domain.Member;
@@ -66,5 +67,13 @@ public class MemberService {
         Member member = memberRepository.findById(userId)
             .orElseThrow(() -> new NotFoundException("회원을 찾을 수 없습니다."));
         return MemberInfoResponse.from(member);
+    }
+
+    @Transactional
+    public void modifyInfo(Long userId, MemberModifyRequest request) {
+        Member member = memberRepository.findById(userId)
+            .orElseThrow(() -> new NotFoundException("회원을 찾을 수 없습니다."));
+
+        member.changeInfo(request.nickname(), request.phoneNumber());
     }
 }
