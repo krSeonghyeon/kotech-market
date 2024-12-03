@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마이페이지</title>
+    <link rel="stylesheet" href="/css/mypage.css">
+</head>
+<body>
+<div class="mypage">
+    <div class="sidebar">
+        <div class="logo">
+            <a href="http://localhost:8080/index.html" title="메인 페이지">
+                <img src="/images/logo.png" alt="Kotech Market Logo">
+            </a>
+        </div>
+        <h1 class="sidebar-title">마이마켓</h1>
+        <ul>
+            <li id="menu-myinfo" class="active">나의 정보</li>
+            <li id="menu-editinfo">정보 수정</li>
+            <li id="menu-deleteaccount">회원 탈퇴</li>
+        </ul>
+    </div>
+    <div class="content">
+        <div id="myinfo" class="section">
+            <h2>나의 정보</h2>
+            <hr class="divider">
+            <div class="info-container">
+                <div class="myinfo-card">
+                    <div class="myinfo-item"><i class="myinfo-icon-email"></i><div><strong>이메일</strong><span id="email"></span></div></div>
+                    <div class="myinfo-item"><i class="myinfo-icon-user"></i><div><strong>이름</strong><span id="name"></span></div></div>
+                    <div class="myinfo-item"><i class="myinfo-icon-nickname"></i><div><strong>닉네임</strong><span id="nickname"></span></div></div>
+                    <div class="myinfo-item"><i class="myinfo-icon-student"></i><div><strong>학번</strong><span id="studentNumber"></span></div></div>
+                    <div class="myinfo-item"><i class="myinfo-icon-phone"></i><div><strong>전화번호</strong><span id="phone"></span></div></div>
+                </div>
+            </div>
+        </div>
+        <div id="editinfo" class="section hidden">
+            <h2>정보 수정</h2>
+            <hr class="divider">
+            <form id="editForm">
+                <div class="form-row"><label for="nicknameInput">닉네임</label><input type="text" id="nicknameInput" name="nickname" placeholder="닉네임 입력"></div>
+                <div class="form-row"><label for="phoneInput">전화번호</label><input type="text" id="phoneInput" name="phone" placeholder="전화번호 입력"></div>
+                <button type="submit" class="submit-button">수정하기</button>
+            </form>
+        </div>
+        <div id="deleteaccount" class="section hidden">
+            <h2>회원 탈퇴</h2>
+            <hr class="divider">
+            <div class="warning-box">
+                <p class="warning-message">
+                    ⚠️ 회원 탈퇴를 진행하시면 <strong class="highlight">모든 데이터가 영구적으로 삭제</strong>되며, 복구가 불가능합니다.
+                </p>
+                <p class="warning-details">정말로 탈퇴를 진행하시겠습니까? 신중히 결정해 주세요.</p>
+            </div>
+            <button id="confirm-delete" class="delete-button">탈퇴하기</button>
+        </div>
+    </div>
+</div>
+<script src="/js/mypage.js"></script>
+</body>
+</html>

@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 }
                 alert("로그인이 완료되었습니다!");
-                window.location.href = "http://localhost:8080/main.html";
+                window.location.href = "http://localhost:8080/index.html";
             })
             .catch(error => {
                 alert(`${error.message}`);

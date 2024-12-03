@@ -19,13 +19,13 @@ body {
     width: 100%;
 }
 
-.logo-container {
+.logo {
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
 }
 
-.logo {
+.image {
     max-width: 100%;
     height: auto;
     max-height: 90px;
@@ -49,7 +49,7 @@ h1 {
     color: #444;
     margin-bottom: 15px;
     font-weight: 700;
-    border-bottom: 2px solid #003f7f; /* 더 진한 파란색 */
+    border-bottom: 2px solid #003f7f;
     padding-bottom: 5px;
 }
 
@@ -77,14 +77,14 @@ input {
 }
 
 input:focus {
-    outline: 2px solid rgba(0, 63, 127, 0.8); /* 얇은 outline */
-    box-shadow: 0 0 8px rgba(0, 63, 127, 0.5); /* 부드러운 그림자 */
+    outline: 2px solid rgba(0, 63, 127, 0.8);
+    box-shadow: 0 0 8px rgba(0, 63, 127, 0.5);
 }
 
 .submit-button {
     width: 100%;
     padding: 12px;
-    background-color: #003f7f; /* 더 진한 파란색 */
+    background-color: #003f7f;
     color: #ffffff;
     border: none;
     border-radius: 6px;
@@ -95,10 +95,10 @@ input:focus {
 }
 
 .submit-button:hover {
-    background-color: #002850; /* hover 상태에서 더 어두운 진한 파란색 */
+    background-color: #002850;
 }
 
 .submit-button:active {
-    background-color: #001430; /* active 상태에서 더 어두운 진한 파란색 */
+    background-color: #001430;
     transform: scale(0.98);
 }

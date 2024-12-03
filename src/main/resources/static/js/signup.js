@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 alert('회원가입이 완료되었습니다!');
                 form.reset();
+                window.location.href = "http://localhost:8080/login.html";
             })
             .catch((error) => {
                 alert(error.message);

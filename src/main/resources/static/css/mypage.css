@@ -1,0 +1,268 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.mypage {
+    display: flex;
+    max-width: 1200px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+}
+
+.sidebar-title {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    margin: 10px 0;
+    padding: 15px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.sidebar li.active {
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #5a2d82;
+}
+
+.sidebar li:hover {
+    background-color: #eaeaea;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    max-width: 100%;
+    height: auto;
+    max-height: 100px;
+}
+
+.content {
+    width: 80%;
+    padding: 20px;
+}
+
+.section {
+    display: none;
+}
+
+.section:not(.hidden) {
+    display: block;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.divider {
+    border: none;
+    height: 2px;
+    background-color: #5a2d82;
+    margin-bottom: 20px;
+}
+
+/* 나의 정보 컨테이너 */
+.info-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.myinfo-card {
+    width: 100%;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.myinfo-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.myinfo-item:last-child {
+    border-bottom: none;
+}
+
+.myinfo-item i {
+    font-size: 24px;
+    color: #5a2d82;
+    margin-right: 15px;
+}
+
+.myinfo-item strong {
+    display: block;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+.myinfo-item span {
+    display: block;
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* 아이콘 스타일링 (나의 정보 전용) */
+.myinfo-icon-email::before {
+    content: "📧";
+}
+
+.myinfo-icon-user::before {
+    content: "👤";
+}
+
+.myinfo-icon-nickname::before {
+    content: "🏷️";
+}
+
+.myinfo-icon-student::before {
+    content: "🎓";
+}
+
+.myinfo-icon-phone::before {
+    content: "📞";
+}
+
+/* 폼 */
+.form-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.form-row label {
+    font-size: 16px;
+    font-weight: bold;
+    width: 150px;
+}
+
+.form-row input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* 버튼 */
+.submit-button,
+.delete-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #5a2d82;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #472162;
+}
+
+.warning-box {
+    background-color: #fff4f4;
+    border: 1px solid #d9534f;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.warning-message {
+    font-size: 16px;
+    font-weight: bold;
+    color: #d9534f;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.highlight {
+    color: #b80000;
+    font-weight: bold;
+    background-color: #ffe6e6;
+    padding: 2px 4px;
+    border-radius: 3px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { background-color: #ffe6e6; }
+    50% { background-color: #ffcccc; }
+    100% { background-color: #ffe6e6; }
+}
+
+.icon-warning::before {
+    content: "⚠️";
+    margin-right: 5px;
+    color: #b80000;
+    font-size: 16px;
+}
+
+.warning-details {
+    font-size: 14px;
+    color: #a94442;
+    line-height: 1.5;
+}
+
+.delete-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #d9534f;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c9302c;
+}

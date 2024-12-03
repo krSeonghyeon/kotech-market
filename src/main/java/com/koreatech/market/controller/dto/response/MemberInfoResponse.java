@@ -6,8 +6,8 @@ public record MemberInfoResponse(
     String email,
     String name,
     String nickname,
-    String student_number,
-    String phone_number
+    String studentNumber,
+    String phoneNumber
 ) {
 
     public static MemberInfoResponse from(Member member) {
