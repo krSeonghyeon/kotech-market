@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             phoneNumber: document.getElementById('phoneNumber').value
         };
 
-        fetch('/members', {
+        fetch("http://localhost:8080/members", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

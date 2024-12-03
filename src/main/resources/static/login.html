@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>로그인</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+<div class="main">
+    <header>
+        <div class="logo">
+            <a href="http://localhost:8080/main.html" target="_blank" title="메인 페이지">
+                <img src="/images/logo.png" class="image" alt="Kotech Market Logo">
+            </a>
+        </div>
+    </header>
+
+    <section class="login-wrap">
+        <form id="login-form">
+            <div class="login-id-wrap">
+                <input id="email" placeholder="이메일" type="email" required class="input-id">
+            </div>
+            <div class="login-pw-wrap">
+                <input id="password" placeholder="비밀번호" type="password" required class="input-pw">
+            </div>
+            <div class="login-btn-wrap">
+                <input type="submit" class="login-btn" value="로그인">
+            </div>
+        </form>
+
+        <div class="divider">
+            <span class="divider-text">또는</span>
+        </div>
+
+        <div class="signup-prompt">
+            <span><b>계정이 없으신가요?</b></span>
+            <a href="http://localhost:8080/signup.html" class="signup-link">가입하기</a>
+        </div>
+    </section>
+
+
+    <footer>
+        <div class="copyright-wrap">
+            <span>Copyright © KOTECH MARKET Corp. All Rights Reserved.</span>
+        </div>
+    </footer>
+</div>
+<script src="/js/login.js"></script>
+</body>
+</html>
