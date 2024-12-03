@@ -4,6 +4,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.koreatech.market.controller.dto.request.ProductCreateRequest;
+import com.koreatech.market.controller.dto.response.ProductInfoResponse;
 import com.koreatech.market.domain.Category;
 import com.koreatech.market.domain.Member;
 import com.koreatech.market.domain.Product;
@@ -51,5 +52,11 @@ public class ProductService {
             .build();
 
         productRepository.save(createProduct);
+    }
+
+    public ProductInfoResponse getProductInfo(Long productId) {
+        Product product = productRepository.findById(productId)
+            .orElseThrow(() -> new NotFoundException("찾을 수 없는 상품입니다."));
+        return ProductInfoResponse.from(product);
     }
 }
