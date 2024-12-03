@@ -46,11 +46,11 @@ public class MemberController {
     @GetMapping
     public ResponseEntity<MemberInfoResponse> getInfo(@SessionAttribute(name = "memberId") Long userId) {
         MemberInfoResponse response = memberService.getInfo(userId);
-        return ResponseEntity.ok().body(response);
+        return ResponseEntity.ok(response);
     }
 
     @PutMapping
-    public ResponseEntity<MemberInfoResponse> modifyInfo(
+    public ResponseEntity<Void> modifyInfo(
         @SessionAttribute(name = "memberId") Long userId,
         @RequestBody @Valid MemberModifyRequest request
     ) {
