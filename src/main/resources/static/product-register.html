@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상품 등록</title>
+    <title>KOTECH MARKET | 상품등록</title>
     <link rel="stylesheet" href="/css/product-register.css">
+    <link rel="stylesheet" href="/css/footer.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d67e021ddf24ff66c95bad52f6e5ea90"></script>
 </head>
 <body>
+
 <div class="product-register">
+    <div class="logo">
+        <a href="http://localhost:8080">
+            <img src="/images/logo.png" alt="로고" class="logo">
+        </a>
+    </div>
     <h1>상품 등록</h1>
     <form id="product-register-form" enctype="multipart/form-data">
         <div class="form-group">
@@ -53,6 +61,22 @@
         <button id="submit-btn"><b>상품 등록</b></button>
     </form>
 </div>
+
+<footer class="footer">
+    <div class="footer-company">
+        <p>© 2024 Kotech Market. All rights reserved.</p>
+        <p>충청남도 천안시 동남구 병천면 충절로 1600, 한국기술교육대학교 | 대표: 김성현 | 고객센터: 02-1234-5678</p>
+    </div>
+    <div class="footer-social">
+        <a href="https://facebook.com"><i class="fab fa-facebook"></i></a>
+        <a href="https://instagram.com"><i class="fab fa-instagram"></i></a>
+        <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+    </div>
+    <div class="footer-contact">
+        <p>문의: help@kotechmarket.com</p>
+        <p>전화: 010-4192-1174</p>
+    </div>
+</footer>
 
 <script src="/js/product-register.js"></script>
 </body>

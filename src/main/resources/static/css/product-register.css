@@ -5,6 +5,12 @@ body {
     background-color: #f5f5f5;
 }
 
+.logo img {
+    max-width: 200px;
+    display: block;
+    margin: 0 auto;
+}
+
 .product-register {
     width: 100%;
     max-width: 600px;
