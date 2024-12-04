@@ -43,6 +43,8 @@ public class ProductService {
         String imageUrl = null;
         if (request.image() != null) {
             imageUrl = fileService.saveImage(request.image());
+        } else {
+            imageUrl = "images/defaultImage.png";
         }
 
         Product createProduct = Product.builder()
