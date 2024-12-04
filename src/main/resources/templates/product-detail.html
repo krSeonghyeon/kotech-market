@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상품 상세 페이지</title>
+    <link rel="stylesheet" href="/css/product-detail.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=d67e021ddf24ff66c95bad52f6e5ea90"></script>
+    <script>
+        window.onload = function () {
+            const mapContainer = document.getElementById('map');
+            if (mapContainer) {
+                const latitude = parseFloat([[${product.latitude}]]);
+                const longitude = parseFloat([[${product.longitude}]]);
+                const mapOption = {
+                    center: new kakao.maps.LatLng(latitude, longitude),
+                    level: 3
+                };
+
+                const map = new kakao.maps.Map(mapContainer, mapOption);
+
+                const marker = new kakao.maps.Marker({
+                    position: new kakao.maps.LatLng(latitude, longitude)
+                });
+                marker.setMap(map);
+            } else {
+                console.error("지도 컨테이너를 찾을 수 없습니다.");
+            }
+        };
+    </script>
+</head>
+<body>
+<div class="inner-separator"></div>
+
+<div class="product-container">
+    <div class="product-image">
+        <img th:src="${product.image}" alt="상품 이미지">
+    </div>
+    <div class="product-details">
+        <p class="product-category" th:text="${product.categoryName}"></p>
+        <div class="product-header">
+            <h1 class="product-title" th:text="${product.title}"></h1>
+            <span class="product-date">
+                <i class="fa-regular fa-clock"></i>
+                <span th:text="'등록일시: ' + ${#temporals.format(product.createdAt, 'yyyy.MM.dd HH:mm')}"></span>
+            </span>
+        </div>
+        <p class="product-price">
+            <i class="fa-solid fa-wallet"></i>
+            <span th:text="${product.price}"></span>
+        </p>
+
+        <div class="product-price-separator"></div>
+
+        <ul class="product-info">
+            <li><strong>판매자:</strong> <span th:text="${product.sellerNickname}"></span></li>
+            <li><strong>판매상태:</strong> <span th:text="${product.status}"></span></li>
+        </ul>
+        <div class="product-buttons">
+            <button class="chat-button">
+                <i class="fa-solid fa-comment"></i> 판매자문의
+            </button>
+            <button class="buy-button">
+                <i class="fa-solid fa-cart-shopping"></i> 바로구매
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="inner-separator"></div>
+
+<div class="description-map-container">
+    <div class="product-description">
+        <h2 class="description-title">상품 설명</h2>
+        <div class="title-separator"></div>
+        <p class="description-content" th:text="${product.content}"></p>
+    </div>
+
+    <div class="vertical-separator"></div>
+
+    <div class="map-section">
+        <h2 class="map-title">직거래 희망 지역</h2>
+        <div class="title-separator"></div>
+        <div class="map-container">
+            <div id="map" style="width:100%; height:200px;"></div>
+        </div>
+    </div>
+</div>
+
+<div class="inner-separator"></div>
+</body>
+</html>

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.koreatech.market.controller.dto.request.ProductCreateRequest;
 import com.koreatech.market.controller.dto.response.ProductInfoResponse;
-import com.koreatech.market.domain.Product;
 import com.koreatech.market.service.ProductService;
 
 import jakarta.validation.Valid;

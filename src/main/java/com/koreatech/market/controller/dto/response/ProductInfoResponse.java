@@ -17,7 +17,6 @@ public record ProductInfoResponse(
     BigDecimal latitude,
     BigDecimal longitude,
     String status,
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     LocalDateTime createdAt
 ) {
     public static ProductInfoResponse from(Product product) {
