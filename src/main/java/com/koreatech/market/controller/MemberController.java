@@ -49,6 +49,21 @@ public class MemberController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/login-status")
+    public ResponseEntity<Boolean> checkLoginStatus(@SessionAttribute(name = "memberId") Long memberId) {
+        if (memberId != null) {
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.ok(false);
+        }
+    }
+
+    @DeleteMapping("/logout")
+    public ResponseEntity<Void> logout(HttpSession session) {
+        session.invalidate();
+        return ResponseEntity.ok().build();
+    }
+
     @PutMapping
     public ResponseEntity<Void> modifyInfo(
         @SessionAttribute(name = "memberId") Long userId,
