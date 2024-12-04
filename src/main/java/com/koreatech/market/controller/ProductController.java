@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
@@ -43,8 +44,12 @@ public class ProductController {
     }
 
     @GetMapping
-    public ResponseEntity<List<ProductSimpleInfoResponse>> getProductsSimpleInfo() {
-        List<ProductSimpleInfoResponse> responses = productService.getProductsSimpleInfo();
+    public ResponseEntity<List<ProductSimpleInfoResponse>> getProductsSimpleInfo(
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "4") int size
+    ) {
+        List<ProductSimpleInfoResponse> responses = productService.getProductsSimpleInfo(page, size);
         return ResponseEntity.ok(responses);
     }
+
 }
