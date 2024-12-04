@@ -80,7 +80,7 @@ function getRelativeTime(dateTime) {
 
 async function fetchProducts(page, size) {
     try {
-        const response = await fetch(`/products?page=${page}&size=${size}`);
+        const response = await fetch(`/products/simple-info?page=${page}&size=${size}`);
         if (!response.ok) throw new Error("상품 데이터를 가져오는데 실패했습니다.");
         const products = await response.json();
 

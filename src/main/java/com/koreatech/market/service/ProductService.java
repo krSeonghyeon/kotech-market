@@ -4,7 +4,9 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,6 +16,7 @@ import com.koreatech.market.controller.dto.response.ProductSimpleInfoResponse;
 import com.koreatech.market.domain.Category;
 import com.koreatech.market.domain.Member;
 import com.koreatech.market.domain.Product;
+import com.koreatech.market.domain.ProductSpecifications;
 import com.koreatech.market.domain.ProductStatus;
 import com.koreatech.market.exception.NotFoundException;
 import com.koreatech.market.repository.CategoryRepository;
@@ -75,5 +78,23 @@ public class ProductService {
         return productsPage.stream()
             .map(ProductSimpleInfoResponse::from)
             .toList();
+    }
+
+    public Page<ProductSimpleInfoResponse> getFilteredProducts(
+        Long categoryId,
+        String title,
+        Long minPrice,
+        Long maxPrice,
+        int page,
+        int size
+    ) {
+        Specification<Product> spec = Specification.where(ProductSpecifications.categoryEquals(categoryId))
+            .and(ProductSpecifications.titleContains(title))
+            .and(ProductSpecifications.priceBetween(minPrice, maxPrice));
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by(Sort.Direction.DESC, "createdAt"));
+
+        return productRepository.findAll(spec, pageable)
+            .map(ProductSimpleInfoResponse::from);
     }
 }

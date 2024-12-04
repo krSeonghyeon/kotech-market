@@ -2,6 +2,7 @@ package com.koreatech.market.controller;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -43,7 +44,7 @@ public class ProductController {
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping
+    @GetMapping("/simple-info")
     public ResponseEntity<List<ProductSimpleInfoResponse>> getProductsSimpleInfo(
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "4") int size
@@ -52,4 +53,15 @@ public class ProductController {
         return ResponseEntity.ok(responses);
     }
 
+    @GetMapping
+    public Page<ProductSimpleInfoResponse> getProducts(
+        @RequestParam(required = false) Long categoryId,
+        @RequestParam(required = false) String title,
+        @RequestParam(required = false) Long minPrice,
+        @RequestParam(required = false) Long maxPrice,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "12") int size
+    ) {
+        return productService.getFilteredProducts(categoryId, title, minPrice, maxPrice, page, size);
+    }
 }
