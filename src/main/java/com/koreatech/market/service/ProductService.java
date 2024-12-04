@@ -1,10 +1,14 @@
 package com.koreatech.market.service;
 
+import java.util.List;
+
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.koreatech.market.controller.dto.request.ProductCreateRequest;
 import com.koreatech.market.controller.dto.response.ProductInfoResponse;
+import com.koreatech.market.controller.dto.response.ProductSimpleInfoResponse;
 import com.koreatech.market.domain.Category;
 import com.koreatech.market.domain.Member;
 import com.koreatech.market.domain.Product;
@@ -58,5 +62,12 @@ public class ProductService {
         Product product = productRepository.findById(productId)
             .orElseThrow(() -> new NotFoundException("찾을 수 없는 상품입니다."));
         return ProductInfoResponse.from(product);
+    }
+
+    public List<ProductSimpleInfoResponse> getProductsSimpleInfo() {
+        List<Product> products = productRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
+        return products.stream()
+            .map(ProductSimpleInfoResponse::from)
+            .toList();
     }
 }

@@ -1,5 +1,7 @@
 package com.koreatech.market.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.SessionAttribute;
 
 import com.koreatech.market.controller.dto.request.ProductCreateRequest;
 import com.koreatech.market.controller.dto.response.ProductInfoResponse;
+import com.koreatech.market.controller.dto.response.ProductSimpleInfoResponse;
 import com.koreatech.market.service.ProductService;
 
 import jakarta.validation.Valid;
@@ -37,5 +40,11 @@ public class ProductController {
     public ResponseEntity<ProductInfoResponse> getProductInfo(@PathVariable Long id) {
         ProductInfoResponse response = productService.getProductInfo(id);
         return ResponseEntity.ok(response);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<ProductSimpleInfoResponse>> getProductsSimpleInfo() {
+        List<ProductSimpleInfoResponse> responses = productService.getProductsSimpleInfo();
+        return ResponseEntity.ok(responses);
     }
 }
