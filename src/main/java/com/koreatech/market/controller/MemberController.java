@@ -50,15 +50,15 @@ public class MemberController {
     }
 
     @GetMapping("/login-status")
-    public ResponseEntity<Boolean> checkLoginStatus(@SessionAttribute(name = "memberId") Long memberId) {
-        if (memberId != null) {
+    public ResponseEntity<Boolean> checkLoginStatus(HttpSession session) {
+        if (session.getAttribute("memberId") != null) {
             return ResponseEntity.ok(true);
         } else {
             return ResponseEntity.ok(false);
         }
     }
 
-    @DeleteMapping("/logout")
+    @PostMapping("/logout")
     public ResponseEntity<Void> logout(HttpSession session) {
         session.invalidate();
         return ResponseEntity.ok().build();

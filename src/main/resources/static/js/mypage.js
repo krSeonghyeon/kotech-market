@@ -36,7 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("phone").textContent = memberData.phoneNumber;
         } catch (error) {
             alert("회원 정보를 불러오는 데 실패했습니다.");
-            window.location.href = "http://localhost:8080/login.html";
+            const redirectUrl = encodeURIComponent(window.location.href);
+            window.location.href = `http://localhost:8080/login.html?redirect=${redirectUrl}`;
         }
     }
 

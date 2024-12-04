@@ -43,8 +43,15 @@
         </div>
 
         <div class="navbar-right">
-            <button class="auth-button" onclick="location.href='/login.html'"><i class="fa-solid fa-lock"></i> 로그인</button>
-            <button class="auth-button" onclick="location.href='/signup.html'"><i class="fa-solid fa-user"></i> 회원가입</button>
+            <button id="loginButton" class="auth-button" onclick="location.href='/login.html'" style="display:none;">
+                <i class="fa-solid fa-lock"></i> 로그인
+            </button>
+            <button id="signupButton" class="auth-button" onclick="location.href='/signup.html'">
+                <i class="fa-solid fa-user"></i> 회원가입
+            </button>
+            <button id="logoutButton" class="auth-button" onclick="logout()" style="display:none;">
+                <i class="fa-solid fa-sign-out-alt"></i> 로그아웃
+            </button>
         </div>
     </div>
 </header>
@@ -129,5 +136,6 @@
 <button id="top-button" class="top-button">TOP</button>
 
 <script src="/js/index.js"></script>
+<script src="/js/logincheck.js"></script>
 </body>
 </html>

@@ -23,7 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 }
                 alert("로그인이 완료되었습니다!");
-                window.location.href = "http://localhost:8080/index.html";
+
+                const urlParams = new URLSearchParams(window.location.search);
+                const redirectUrl = urlParams.get('redirect') || 'http://localhost:8080/index.html';
+
+                window.location.href = redirectUrl;
             })
             .catch(error => {
                 alert(`${error.message}`);

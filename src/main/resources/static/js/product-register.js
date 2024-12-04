@@ -132,3 +132,26 @@ document.getElementById('submit-btn').addEventListener('click', function (event)
         });
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+    checkLoginStatus();
+});
+
+function checkLoginStatus() {
+    fetch('/members/login-status', {
+        method: 'GET',
+        credentials: 'same-origin',
+    })
+        .then(response => response.json())
+        .then(isLoggedIn => {
+            if (!isLoggedIn) {
+                alert("로그인 후 이용할 수 있습니다.");
+                window.location.href = '/login.html?redirect=' + encodeURIComponent(window.location.href);
+            }
+        })
+        .catch(error => {
+            console.error("로그인 상태 확인 실패:", error);
+            window.location.href = '/login.html?redirect=' + encodeURIComponent(window.location.href);
+        });
+}
+
+
