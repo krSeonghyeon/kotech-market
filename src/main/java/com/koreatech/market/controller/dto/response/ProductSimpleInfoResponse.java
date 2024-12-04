@@ -9,6 +9,7 @@ public record ProductSimpleInfoResponse(
     String title,
     Long price,
     String image,
+    String status,
     LocalDateTime createdAt
 ) {
     public static ProductSimpleInfoResponse from(Product product) {
@@ -17,6 +18,7 @@ public record ProductSimpleInfoResponse(
             product.getTitle(),
             product.getPrice(),
             product.getImage(),
+            product.getStatus().toString(),
             product.getCreatedAt()
         );
     }
