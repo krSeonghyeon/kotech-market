@@ -49,11 +49,11 @@
             <div class="dropdown">
                 <button class="category-button">카테고리 <i class="fa-solid fa-angle-down"></i></button>
                 <div class="dropdown-content">
-                    <a href="#">의류</a>
-                    <a href="#">전자제품</a>
-                    <a href="#">교재</a>
-                    <a href="#">자취용품</a>
-                    <a href="#">기타</a>
+                    <a href="/products/categories/1">의류</a>
+                    <a href="/products/categories/2">전자제품</a>
+                    <a href="/products/categories/3">교재</a>
+                    <a href="/products/categories/4">자취용품</a>
+                    <a href="/products/categories/5">기타</a>
                 </div>
             </div>
             <span class="divider">|</span>
@@ -76,7 +76,7 @@
         <img th:src="${product.image}" alt="상품 이미지">
     </div>
     <div class="product-details">
-        <p class="product-category" th:text="${product.categoryName}"></p>
+        <p class="product-category"><strong th:text="${product.categoryName}"></strong></p>
         <div class="product-header">
             <h1 class="product-title" th:text="${product.title}"></h1>
             <span class="product-date">

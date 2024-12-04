@@ -3,14 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KOTECH MARKET</title>
+    <title>KOTECH MARKET | [[${categoryName}]]</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/category.css">
     <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/footer.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap" rel="stylesheet">
+    <script>
+        function goToPage(button) {
+            const categoryId = button.getAttribute("data-category-id");
+            const page = button.getAttribute("data-page");
+
+            const minPrice = document.querySelector('input[name="minPrice"]').value;
+            const maxPrice = document.querySelector('input[name="maxPrice"]').value;
+
+            let url = `/products/categories/${categoryId}?page=${page}`;
+
+            if (minPrice) url += `&minPrice=${minPrice}`;
+            if (maxPrice) url += `&maxPrice=${maxPrice}`;
+
+            window.location.href = url;
+        }
+    </script>
 </head>
 <body>
 <header class="navbar">
@@ -57,62 +73,38 @@
 </header>
 
 <main>
-    <section class="slider-container">
-        <div class="slider">
-            <div class="slide"><img src="/images/slider1.png" alt="Slide 1"></div>
-            <div class="slide"><img src="/images/slider2.png" alt="Slide 2"></div>
-            <div class="slide"><img src="/images/slider3.png" alt="Slide 3"></div>
-            <div class="slide"><img src="/images/slider4.png" alt="Slide 4"></div>
-            <div class="slide"><img src="/images/slider5.png" alt="Slide 5"></div>
-        </div>
-        <button class="prev-btn">＜</button>
-        <button class="next-btn">＞</button>
-        <div class="dots-container"></div>
-    </section>
-
-    <section class="popular-categories">
-        <h2>카테고리</h2>
-        <div class="categories-container">
-            <a href="/products/categories/1" class="category-card">
-                <div class="category-image">
-                    <img src="/images/category1.png" alt="의류">
-                </div>
-                <span class="category-name">의류</span>
-            </a>
-            <a href="/products/categories/2" class="category-card">
-                <div class="category-image">
-                    <img src="/images/category2.png" alt="전자제품">
-                </div>
-                <span class="category-name">전자제품</span>
-            </a>
-            <a href="/products/categories/3" class="category-card">
-                <div class="category-image">
-                    <img src="/images/category3.png" alt="교재">
-                </div>
-                <span class="category-name">교재</span>
-            </a>
-            <a href="/products/categories/4" class="category-card">
-                <div class="category-image">
-                    <img src="/images/category4.png" alt="자취용품">
-                </div>
-                <span class="category-name">자취용품</span>
-            </a>
-            <a href="/products/categories/5" class="category-card">
-                <div class="category-image">
-                    <img src="/images/category5.png" alt="기타">
-                </div>
-                <span class="category-name">기타</span>
-            </a>
-        </div>
-    </section>
-
     <section class="products-section-wrapper">
         <div class="products-section">
-            <h2>새로운 상품</h2>
-            <div id="product-list" class="product-list">
-                <!-- 상품 카드들이 동적 추가-->
+            <div class="products-header">
+                <h2 th:text="${categoryName}">카테고리명</h2>
+                <section class="filters-inline">
+                    <form method="get" th:action="@{/products/categories/{categoryId}(categoryId=${categoryId})}">
+                        <input type="number" name="minPrice" placeholder="최소 가격" th:value="${minPrice}">
+                        <input type="number" name="maxPrice" placeholder="최대 가격" th:value="${maxPrice}">
+                        <button type="submit">필터 적용</button>
+                    </form>
+                </section>
             </div>
-            <div id="loading" class="loading">로딩 중...</div>
+
+            <div id="product-list" class="product-list">
+                <div class="product-card" th:each="product : ${products}">
+                    <a th:href="@{/product-detail/{productId}(productId=${product.productId()})}">
+                        <img th:src="${product.image}" alt="상품 이미지">
+                        <h3 th:text="${product.title}">상품 제목</h3>
+                        <p th:text="'가격: ' + ${product.price} + '원'">가격</p>
+                        <p th:text="'등록일: ' + ${#temporals.format(product.createdAt, 'yyyy.MM.dd HH:mm')}">등록일</p>
+                    </a>
+                </div>
+            </div>
+
+            <nav class="pagination">
+                <button th:each="i : ${#numbers.sequence(0, totalPages - 1)}"
+                        th:text="${i + 1}"
+                        th:classappend="${i == currentPage} ? 'active' : ''"
+                        th:attr="data-category-id=${categoryId}, data-page=${i}"
+                        onclick="goToPage(this)">
+                </button>
+            </nav>
         </div>
     </section>
 </main>
@@ -135,7 +127,6 @@
 
 <button id="top-button" class="top-button">TOP</button>
 
-<script src="/js/index.js"></script>
 <script src="/js/logincheck.js"></script>
 </body>
 </html>
