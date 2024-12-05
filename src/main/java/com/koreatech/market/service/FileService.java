@@ -27,7 +27,7 @@ public class FileService {
             Path directory = Paths.get(uploadDir);
             Path filePath = directory.resolve(fileName);
             Files.copy(imageFile.getInputStream(), filePath);
-            return "/images/" + fileName;
+            return fileName;
         } catch (IOException e) {
             throw new FileException("파일 저장에 실패했습니다.");
         }
