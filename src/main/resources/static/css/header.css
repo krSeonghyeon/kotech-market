@@ -38,7 +38,7 @@
 }
 
 .search-container {
-    display: flex; /* 검색창 전체를 플렉스 박스로 유지 */
+    display: flex;
     align-items: center;
     background-color: #333;
     border: 1px solid #bbb;
@@ -51,17 +51,17 @@
 }
 
 .search-container form {
-    display: flex; /* 폼 내부 요소를 플렉스 박스로 정렬 */
+    display: flex;
     flex-grow: 1;
     align-items: center;
-    width: 100%; /* 폼이 컨테이너 전체를 차지하도록 설정 */
+    width: 100%;
     margin: 0;
 }
 
 .search-input {
     border: none;
     padding: 5px 10px;
-    flex: 1; /* 검색창이 버튼과 공간을 적절히 나눔 */
+    flex: 1;
     font-size: 14px;
     outline: none;
     background-color: transparent;
