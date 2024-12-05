@@ -3,18 +3,18 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
-    display: flex; /* Flexbox 활성화 */
-    justify-content: center; /* 가로 중앙 정렬 */
-    align-items: center; /* 세로 중앙 정렬 */
-    min-height: 100vh; /* 화면 전체 높이 기준 중앙 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .mypage {
     display: flex;
-    width: 80%; /* 너비를 화면의 80%로 설정 */
-    max-width: 1200px; /* 최대 너비 설정 */
-    height: 80%; /* 높이를 화면의 80%로 설정 */
-    max-height: 800px; /* 최대 높이 설정 */
+    width: 80%;
+    max-width: 1200px;
+    height: 80%;
+    max-height: 800px;
     background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
@@ -22,7 +22,7 @@ body {
 }
 
 .sidebar {
-    width: 25%; /* 사이드바 너비 확대 */
+    width: 25%;
     background-color: #f9f9f9;
     padding: 20px;
     border-right: 1px solid #ddd;
@@ -74,9 +74,9 @@ body {
 }
 
 .content {
-    width: 75%; /* 콘텐츠 영역 너비 확대 */
-    padding: 30px; /* 내부 패딩 증가 */
-    overflow-y: auto; /* 콘텐츠가 넘칠 경우 스크롤 활성화 */
+    width: 75%;
+    padding: 30px;
+    overflow-y: auto;
 }
 
 .section {
@@ -99,7 +99,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* 나의 정보 컨테이너 */
 .info-container {
     display: flex;
     justify-content: center;
@@ -112,18 +111,18 @@ h2 {
 
 .myinfo-card {
     width: 100%;
-    max-width: 800px; /* 카드의 최대 너비 증가 */
+    max-width: 800px;
     background-color: #fff;
     border-radius: 8px;
     border: 1px solid #ddd;
-    padding: 30px; /* 내부 패딩 증가 */
+    padding: 30px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .myinfo-item {
     display: flex;
     align-items: center;
-    padding: 15px 0; /* 아이템 간격 증가 */
+    padding: 15px 0;
     border-bottom: 1px solid #eee;
 }
 
@@ -151,7 +150,6 @@ h2 {
     margin-top: 4px;
 }
 
-/* 아이콘 스타일링 (나의 정보 전용) */
 .myinfo-icon-email::before {
     content: "📧";
 }
@@ -172,7 +170,6 @@ h2 {
     content: "📞";
 }
 
-/* 폼 */
 .form-row {
     display: flex;
     align-items: center;
@@ -194,7 +191,6 @@ h2 {
     box-sizing: border-box;
 }
 
-/* 버튼 */
 .submit-button,
 .delete-button {
     display: block;
@@ -272,4 +268,63 @@ h2 {
 
 .delete-button:hover {
     background-color: #c9302c;
+}
+
+@media (max-width: 768px) {
+    .mypage {
+        flex-direction: column;
+        width: 100%;
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        padding: 10px 0;
+    }
+
+    .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sidebar li {
+        margin: 10px;
+        padding: 10px 20px;
+        text-align: center;
+        border-radius: 4px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .content {
+        width: 93%;
+        padding: 15px;
+    }
+
+    .myinfo-card {
+        width: 100%;
+        max-width: none;
+        padding: 15px;
+    }
+
+    .myinfo-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .myinfo-item strong {
+        margin-bottom: 5px;
+    }
 }
