@@ -7,6 +7,7 @@ body {
     align-items: center; /* 세로 중앙 정렬 */
     min-height: 100vh; /* 화면 높이 기준 중앙 정렬 */
     background-color: #f4f4f4; /* 배경색 추가 */
+    box-sizing: border-box; /* 박스 모델 통일 */
 }
 
 .main {
@@ -14,8 +15,10 @@ body {
     padding: 20px 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
+    max-width: 400px; /* 데스크탑 화면에서 최대 너비 제한 */
+    width: 100%; /* 화면 너비에 맞춤 */
     text-align: center;
+    box-sizing: border-box;
 }
 
 .image {
@@ -115,13 +118,37 @@ footer {
     color: #888;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 600px) {
     .main {
-        width: 90%;
-        padding: 15px;
+        max-width: 90%; /* 화면 너비의 90%로 제한 */
+        padding: 20px 10px; /* 패딩 조정 */
+    }
+
+    .image {
+        height: 60px; /* 이미지 크기 축소 */
+    }
+
+    .login-id-wrap, .login-pw-wrap {
+        margin: 0px 5px 15px 5px; /* 마진 축소 */
+    }
+
+    .login-btn-wrap {
+        height: 48px; /* 버튼 높이 축소 */
     }
 
     .login-btn {
-        font-size: 16px;
+        font-size: 16px; /* 버튼 폰트 크기 축소 */
+    }
+
+    .divider {
+        margin: 10px 5px; /* 구분선 여백 축소 */
+    }
+
+    .signup-prompt {
+        font-size: 12px; /* 텍스트 크기 축소 */
+    }
+
+    footer {
+        font-size: 10px; /* 푸터 텍스트 크기 축소 */
     }
 }
