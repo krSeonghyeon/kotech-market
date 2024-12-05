@@ -231,7 +231,6 @@ main {
     background-color: #555;
 }
 
-
 .product-list {
     display: flex;
     flex-wrap: wrap;
@@ -301,4 +300,36 @@ main {
 
 .product-card a {
     text-decoration: none;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-container.sold-out .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 16px;
+    z-index: 1;
+}
+
+.overlay span {
+    text-align: center;
 }

@@ -26,6 +26,16 @@
 
             window.location.href = url;
         }
+        document.addEventListener("DOMContentLoaded", () => {
+            const productCards = document.querySelectorAll(".product-card");
+
+            productCards.forEach(card => {
+                const status = card.getAttribute("data-status");
+                if (status === "판매완료") {
+                    card.classList.add("sold-out");
+                }
+            });
+        });
     </script>
 </head>
 <body>
@@ -89,9 +99,14 @@
             <div id="product-list" class="product-list">
                 <div class="product-card" th:each="product : ${products}">
                     <a th:href="@{/product-detail/{productId}(productId=${product.productId()})}">
-                        <img th:src="${product.image}" alt="상품 이미지">
+                        <div class="image-container" th:classappend="${product.status == '판매완료'} ? 'sold-out' : ''">
+                            <img th:src="${product.image}" alt="상품 이미지">
+                            <div class="overlay" th:if="${product.status == '판매완료'}">
+                                <span>판매완료된 상품입니다.</span>
+                            </div>
+                        </div>
                         <h3 th:text="${product.title}">상품 제목</h3>
-                        <p th:text="'가격: ' + ${product.price} + '원'">가격</p>
+                        <p class="price" th:text="'가격: ' + ${product.price} + '원'">가격</p>
                         <p th:text="'등록일: ' + ${#temporals.format(product.createdAt, 'yyyy.MM.dd HH:mm')}">등록일</p>
                     </a>
                 </div>
