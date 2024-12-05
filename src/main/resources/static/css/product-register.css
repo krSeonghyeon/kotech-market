@@ -29,7 +29,6 @@ h1 {
     text-align: left;
     font-size: 24px;
     margin-bottom: 20px;
-
     border-bottom: 1px solid black;
     padding-bottom: 10px;
 }
@@ -137,4 +136,46 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     z-index: 1000;
+}
+
+@media (max-width: 768px) {
+    .product-register {
+        max-width: 90%;
+        padding: 15px;
+        margin: 30px auto;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea,
+    select {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    textarea {
+        height: 80px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .image-preview-box {
+        height: 300px;
+    }
+
+    .map-container {
+        height: 300px;
+    }
+
+    #submit-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
 }
