@@ -70,4 +70,26 @@ public class PageController {
         return "category";
     }
 
+    @GetMapping("/products/search")
+    public String getProductSearch(
+        @RequestParam(required = false) String title,
+        @RequestParam(defaultValue = "0") int page,
+        @RequestParam(defaultValue = "12") int size,
+        @RequestParam(required = false) Long minPrice,
+        @RequestParam(required = false) Long maxPrice,
+        Model model
+    ) {
+        Page<ProductSimpleInfoResponse> products = productService.getFilteredProducts(
+            null, title, minPrice, maxPrice, page, size
+        );
+
+        model.addAttribute("products", products.getContent());
+        model.addAttribute("currentPage", page);
+        model.addAttribute("totalPages", products.getTotalPages());
+        model.addAttribute("minPrice", minPrice);
+        model.addAttribute("maxPrice", maxPrice);
+        model.addAttribute("title", title);
+
+        return "search";
+    }
 }
