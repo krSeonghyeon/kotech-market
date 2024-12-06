@@ -98,7 +98,7 @@
     color: #bbb;
 }
 
-.dropdown {
+.dropdown-desktop-only {
     position: relative;
     display: inline-block;
 }
@@ -115,7 +115,7 @@
     z-index: 100;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown-desktop-only:hover .dropdown-content {
     display: block;
 }
 
