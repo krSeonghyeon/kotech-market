@@ -111,7 +111,7 @@ function renderProducts(products) {
             statusClass = "sold-out";
             statusOverlay = `
                 <div class="overlay">
-                    <span>판매완료된 상품입니다.</span>
+                    <span>판매완료된 상품</span>
                 </div>
             `;
         }

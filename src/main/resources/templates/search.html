@@ -131,7 +131,7 @@
                         <div class="image-container" th:classappend="${product.status == '판매완료'} ? 'sold-out' : ''">
                             <img th:src="@{'http://localhost:8080/' + ${product.image}}" alt="상품 이미지">
                             <div class="overlay" th:if="${product.status == '판매완료'}">
-                                <span>판매완료된 상품입니다.</span>
+                                <span>판매완료된 상품</span>
                             </div>
                         </div>
                         <h3 th:text="${product.title}">상품 제목</h3>

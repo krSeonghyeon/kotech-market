@@ -196,13 +196,13 @@
     }
 
     .mobile-menu {
-        display: none; /* 기본적으로 숨김 */
+        display: none;
         position: fixed;
         top: 70px;
         left: 0;
         width: 100%;
-        height: calc(100% - 70px); /* 화면 전체 높이 */
-        background-color: rgba(0, 0, 0, 0.9); /* 어두운 배경 */
+        height: calc(100% - 70px);
+        background-color: rgba(0, 0, 0, 0.9);
         color: white;
         flex-direction: column;
         padding: 20px;

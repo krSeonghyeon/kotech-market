@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Update member info
     document.getElementById("editForm").addEventListener("submit", async (e) => {
         e.preventDefault();
 
@@ -72,7 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Delete member account
     document.getElementById("confirm-delete").addEventListener("click", async () => {
         if (!confirm("정말로 탈퇴하시겠습니까?")) return;
 
