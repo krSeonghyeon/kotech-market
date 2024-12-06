@@ -11,8 +11,10 @@ function checkLoginStatus() {
         .then(isLoggedIn => {
             if (isLoggedIn) {
                 showLogoutButton();
+                showMobileLogout();
             } else {
                 showLoginButton();
+                showMobileLogin();
             }
         })
         .catch(error => {
@@ -20,21 +22,30 @@ function checkLoginStatus() {
         });
 }
 
-// 로그인 버튼 보이기
 function showLoginButton() {
     document.getElementById("loginButton").style.display = 'block';
     document.getElementById("signupButton").style.display = 'block';
     document.getElementById("logoutButton").style.display = 'none';
 }
 
-// 로그아웃 버튼 보이기
 function showLogoutButton() {
     document.getElementById("loginButton").style.display = 'none';
     document.getElementById("signupButton").style.display = 'none';
     document.getElementById("logoutButton").style.display = 'block';
 }
 
-// 로그아웃 처리
+function showMobileLogin() {
+    document.getElementById("login-link").style.display = 'block';
+    document.getElementById("signup-link").style.display = 'block';
+    document.getElementById("logout-link").style.display = 'none';
+}
+
+function showMobileLogout() {
+    document.getElementById("login-link").style.display = 'none';
+    document.getElementById("signup-link").style.display = 'none';
+    document.getElementById("logout-link").style.display = 'block';
+}
+
 function logout() {
     fetch('/members/logout', {
         method: 'POST',
@@ -43,6 +54,7 @@ function logout() {
         .then(response => {
             if (response.ok) {
                 showLoginButton();
+                showMobileLogin();
             } else {
                 console.error("로그아웃 실패");
             }

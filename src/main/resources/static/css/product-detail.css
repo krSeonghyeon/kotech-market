@@ -204,6 +204,7 @@ body {
 
     .product-image {
         padding-right: 0;
+        max-width: none;
     }
 
     .product-image img {
@@ -269,7 +270,7 @@ body {
     .chat-button {
         flex: 1;
         padding: 12px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         background-color: #ffa500;
         color: white;
@@ -282,7 +283,7 @@ body {
     .buy-button {
         flex: 1;
         padding: 12px;
-        font-size: 16px;
+        font-size: 14px;
         text-align: center;
         background-color: #ff4500;
         color: white;
@@ -313,6 +314,7 @@ body {
         padding: 0 15px;
         margin: 0 auto;
         box-sizing: border-box;
+        max-width: none;
     }
 
     .product-description, .map-section {
@@ -357,6 +359,11 @@ body {
 
     .vertical-separator {
         display: none;
+    }
+
+    .product-details {
+        max-width: none;
+        width: 80%;
     }
 }
 

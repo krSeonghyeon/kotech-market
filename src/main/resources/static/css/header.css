@@ -130,7 +130,7 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-.action-button {
+.action-button-desktop-only {
     background-color: #333;
     border: none;
     color: white;
@@ -145,7 +145,7 @@
     color: black;
 }
 
-.navbar-right {
+.navbar-right-desktop-only {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -165,4 +165,123 @@
 .auth-button:hover {
     background: white;
     color: black;
+}
+
+.navbar-right-mobile-only, .mobile-menu {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 95%;
+        max-width: 1200px;
+        padding: 0;
+        box-sizing: border-box;
+        margin-right: 4%;
+        margin-left: 2%;
+    }
+
+    .navbar-right-desktop-only,
+    .dropdown-desktop-only,
+    .divider-desktop-only,
+    .action-button-desktop-only {
+        display: none;
+    }
+
+    .navbar-right-mobile-only {
+        display: flex;
+    }
+
+    .mobile-menu {
+        display: none; /* 기본적으로 숨김 */
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        height: calc(100% - 70px); /* 화면 전체 높이 */
+        background-color: rgba(0, 0, 0, 0.9); /* 어두운 배경 */
+        color: white;
+        flex-direction: column;
+        padding: 20px;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    .mobile-menu.open {
+        display: flex;
+    }
+
+    .navbar-center {
+        margin-left: 10px;
+    }
+
+    .search-container {
+        margin-right: 10px;
+    }
+
+    .menu-button {
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 0;
+        border-radius: 5px;
+        font-size: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-bottom: 20%;
+    }
+
+    .category-list {
+        display: none;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu-list {
+        font-size: 18px;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .menu-list > li {
+        margin: 15px 0;
+        font-size: 18px;
+        line-height: 1.5;
+        font-weight: bold;
+    }
+
+    .menu-list a {
+        text-decoration: none;
+        color: white;
+        display: block;
+        padding: 10px 0;
+    }
+
+    .menu-item {
+        padding: 0;
+    }
+
+    .menu-category-button {
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: white;
+        cursor: pointer;
+        padding: 10px 0;
+        font-weight: bold;
+    }
+
+    .menu-category-button, .menu-list a {
+        outline: none;
+    }
+
+    .menu-category-button:active, .menu-list a:active {
+        background: none;
+        color: inherit;
+    }
 }

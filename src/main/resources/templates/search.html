@@ -48,12 +48,12 @@
 
         <div class="navbar-center">
             <div class="search-container">
-                <form action="/products/search" method="get" style="display: flex; flex: 1; align-items: center;">
+                <form action="/products/search" method="get">
                     <input type="text" name="title" class="search-input" placeholder="검색어를 입력하세요" required>
                     <button type="submit" class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </form>
             </div>
-            <div class="dropdown">
+            <div class="dropdown-desktop-only">
                 <button class="category-button">카테고리 <i class="fa-solid fa-angle-down"></i></button>
                 <div class="dropdown-content">
                     <a href="/products/categories/1">의류</a>
@@ -63,13 +63,13 @@
                     <a href="/products/categories/5">기타</a>
                 </div>
             </div>
-            <span class="divider">|</span>
-            <button class="action-button" onclick="location.href='/product-register.html'">판매하기</button>
-            <span class="divider">|</span>
-            <button class="action-button" onclick="location.href='/mypage.html'">마이페이지</button>
+            <span class="divider-desktop-only">|</span>
+            <button class="action-button-desktop-only" onclick="location.href='/product-register.html'">판매하기</button>
+            <span class="divider-desktop-only">|</span>
+            <button class="action-button-desktop-only" onclick="location.href='/mypage.html'">마이페이지</button>
         </div>
 
-        <div class="navbar-right">
+        <div class="navbar-right-desktop-only">
             <button id="loginButton" class="auth-button" onclick="location.href='/login.html'" style="display:none;">
                 <i class="fa-solid fa-lock"></i> 로그인
             </button>
@@ -79,6 +79,33 @@
             <button id="logoutButton" class="auth-button" onclick="logout()" style="display:none;">
                 <i class="fa-solid fa-sign-out-alt"></i> 로그아웃
             </button>
+        </div>
+
+        <div class="navbar-right-mobile-only">
+            <button class="menu-button mobile-only" onclick="toggleMenu()">☰</button>
+        </div>
+
+        <div id="mobile-menu" class="mobile-menu">
+            <ul class="menu-list">
+                <li class="menu-item">
+                    <button class="menu-category-button" onclick="toggleCategory()">
+                        카테고리
+                        <i class="fa-solid fa-angle-down"></i>
+                    </button>
+                    <ul id="category-list" class="category-list">
+                        <li><a href="/products/categories/1">의류</a></li>
+                        <li><a href="/products/categories/2">전자제품</a></li>
+                        <li><a href="/products/categories/3">교재</a></li>
+                        <li><a href="/products/categories/4">자취용품</a></li>
+                        <li><a href="/products/categories/5">기타</a></li>
+                    </ul>
+                </li>
+                <li><a href="/product-register.html">판매하기</a></li>
+                <li><a href="/mypage.html">마이페이지</a></li>
+                <li><a id="login-link" href="/login.html">로그인</a></li>
+                <li><a id="signup-link" href="/signup.html">회원가입</a></li>
+                <li><a id="logout-link" href="#" style="display: none;" onclick="logout()">로그아웃</a></li>
+            </ul>
         </div>
     </div>
 </header>
@@ -143,5 +170,6 @@
 </footer>
 
 <script src="/js/logincheck.js"></script>
+<script src="/js/header.js"></script>
 </body>
 </html>
