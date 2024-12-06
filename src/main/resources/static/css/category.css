@@ -223,3 +223,108 @@ main {
 .overlay span {
     text-align: center;
 }
+
+@media (max-width: 768px) {
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .products-header h2 {
+        width: 100%;
+        text-align: left;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .filters-inline {
+        flex-direction: column;
+        gap: 15px;
+        width: 93%;
+    }
+
+    .filters-inline input[type="number"] {
+        width: 96%;
+    }
+
+    .filters-inline button {
+        width: 100%;
+    }
+
+    .filters-inline button:hover {
+        background-color: #555;
+    }
+
+    .products-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .products-header h2 {
+        width: 100%;
+        text-align: left;
+        margin-top: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+
+    .filters-inline {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .product-list {
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .product-card {
+        flex: 0 0 calc(50% - 10px);
+        max-width: calc(50% - 10px);
+    }
+
+    .image-container {
+        height: 120px;
+    }
+
+    .product-card h3 {
+        font-size: 14px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .pagination {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .pagination button {
+        flex: 0 0 calc(20% - 10px);
+        max-width: calc(20% - 10px);
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px 0;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: background-color 0.3s, transform 0.2s;
+    }
+
+    .pagination button:hover {
+        background-color: #555;
+        transform: scale(1.05);
+    }
+
+    .pagination button.active {
+        background-color: #ff4500;
+        color: white;
+        font-weight: bold;
+        cursor: default;
+    }
+}
